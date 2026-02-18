@@ -119,11 +119,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
       {/* Navigation */}
       <header className="fixed top-0 w-full z-50 border-b border-border/40 bg-background/60 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 group cursor-pointer">
+          <div className="flex items-center gap-2 group cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center group-hover:scale-110 transition-transform">
-              <span className="text-background font-bold">N</span>
+              <span className="text-background font-bold">M</span>
             </div>
-            <span className="font-bold text-xl tracking-tight">Nexus</span>
+            <span className="font-bold text-xl tracking-tight">Meglerinnsikt</span>
           </div>
           
           <nav className="hidden md:flex items-center gap-8">
@@ -145,27 +145,27 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
         <div className="max-w-7xl mx-auto px-6 text-center">
           <div className="hero-badge inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/30 border border-border/50 text-xs font-medium mb-8 backdrop-blur-md">
             <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            <span className="text-muted-foreground font-semibold">Nexus v2.4</span>
+            <span className="text-muted-foreground font-semibold">Nyhet</span>
             <span className="text-border mx-1">|</span>
-            <span className="text-foreground/80">New Data Geography Engine</span>
+            <span className="text-foreground/80">Boligprisstatistikk for februar er klar</span>
             <ChevronRight className="w-3 h-3 text-muted-foreground" />
           </div>
           
-          <h1 className="hero-title text-5xl md:text-7xl lg:text-9xl font-bold tracking-tight mb-10 leading-[1.1] perspective-[1000px]">
-            <span className="inline-block pb-2">High-density</span><br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/30 inline-block pb-4">growth analytics</span>
+          <h1 className="hero-title text-5xl md:text-7xl lg:text-7xl xl:text-7xl font-bold tracking-tight mb-10 leading-[1.1] perspective-[1000px]">
+            <span className="inline-block pb-2">Boligmarkeder i Oslo</span><br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/30 inline-block pb-4">Megling møter analyse</span>
           </h1>
           
           <p className="hero-description text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
-            Stop guessing. Nexus provides the "Linear-level" precision you need to scale your SaaS with confidence and clarity.
+            Motta min månedlige oppdatering på boligmarkedet i Oslo. Faglig og ærlig om fortid, nåtid og fremtid.
           </p>
           
           <div className="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4 mb-24">
-            <Button variant="premium" size="lg" onClick={onLogin} className="h-14 px-10 rounded-full text-base min-w-[200px]">
-              Start Scaling Now
+            <Button variant="premium" size="lg" className="h-14 px-10 rounded-full text-base min-w-[200px]" onClick={() => document.getElementById('newsletter')?.scrollIntoView({ behavior: 'smooth' })}>
+              Nyhetsbrev
             </Button>
             <Button variant="outline" size="lg" className="h-14 px-10 rounded-full text-base font-bold border-border bg-background/50 backdrop-blur-sm min-w-[200px] group hover:bg-secondary/50" onClick={onLogin}>
-              Explore Demo
+              Få verdivurdering
               <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
@@ -366,29 +366,29 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
       </section>
 
       {/* Featured Blog Post & Recent Posts */}
-      <section className="py-24 px-6 bg-secondary/10 relative overflow-hidden">
+      <section id="blog" className="py-24 px-6 bg-secondary/10 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
         <div className="max-w-7xl mx-auto space-y-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="space-y-4">
               <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 font-bold uppercase tracking-widest text-[10px] px-3 py-1">
-                From the Blog
+                Meglerinnsikt
               </Badge>
               <h2 className="text-4xl md:text-5xl font-black tracking-tighter leading-tight">
-                Nexus Insights & Stories
+                Innsikt og analyser
               </h2>
-              <p className="text-xl text-muted-foreground font-medium max-w-xl">
-                The latest trends in SaaS analytics, engineering performance, and product design.
+              <p className="text-xl text-muted-foreground font-medium max-w-2xl">
+                Blogginnsikten jeg deler gjennom meglerinnsikt gir deg et tydeligere bilde av markedet – og et bedre grunnlag for å ta smarte beslutninger før du går i gang med salg eller kjøp.
               </p>
             </div>
             <Button variant="ghost" className="group text-sm font-bold uppercase tracking-widest text-muted-foreground hover:text-foreground">
-              View all posts <ChevronRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              Se alle artikler <ChevronRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             {/* Featured Post Card */}
-            <div className="lg:col-span-7 group cursor-pointer space-y-6">
+            <div className="group cursor-pointer space-y-6">
               <div className="aspect-[16/9] rounded-3xl overflow-hidden border border-border/40 shadow-2xl relative">
                 <img 
                   src={featuredPost.featuredImage} 
@@ -406,53 +406,68 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                   <div className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> {featuredPost.date}</div>
                   <div className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {featuredPost.readingTime}</div>
                 </div>
-                <h3 className="text-3xl font-bold tracking-tight group-hover:text-primary transition-colors leading-tight">
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tight group-hover:text-primary transition-colors leading-tight">
                   {featuredPost.title}
                 </h3>
                 <p className="text-muted-foreground text-lg leading-relaxed line-clamp-2 font-medium">
                   {featuredPost.excerpt}
                 </p>
                 <Button variant="link" className="p-0 h-auto text-primary font-bold uppercase tracking-widest text-xs group-hover:gap-3 transition-all">
-                  Read article <ArrowRight className="ml-2 w-4 h-4" />
+                  Les artikkel <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </div>
             </div>
 
-            {/* Recent Posts List */}
-            <div className="lg:col-span-5 space-y-6">
-              <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground/60 flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                Recent Posts
-              </h4>
-              <div className="space-y-8">
-                {recentPosts.map((post) => (
-                  <div key={post.id} className="group cursor-pointer flex gap-6">
-                    <div className="w-32 h-24 rounded-2xl overflow-hidden border border-border/40 shrink-0">
-                      <img src={post.featuredImage} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-                    </div>
-                    <div className="space-y-2 py-1">
-                      <div className="flex items-center gap-2">
-                        <Badge variant="ghost" className="p-0 text-[10px] font-bold uppercase tracking-widest text-primary hover:bg-transparent">
-                          {post.category}
-                        </Badge>
-                        <span className="text-[10px] text-muted-foreground/60 font-bold tracking-widest">• {post.readingTime}</span>
-                      </div>
-                      <h5 className="text-base font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">
-                        {post.title}
-                      </h5>
-                    </div>
-                  </div>
-                ))}
+            {/* Second Post Card */}
+            <div className="group cursor-pointer space-y-6">
+              <div className="aspect-[16/9] rounded-3xl overflow-hidden border border-border/40 shadow-2xl relative">
+                <img 
+                  src={recentPosts[0].featuredImage} 
+                  alt={recentPosts[0].title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute top-6 left-6">
+                  <Badge variant="secondary" className="bg-background/80 backdrop-blur-md text-[10px] font-bold uppercase tracking-widest px-3 py-1 border border-white/10">
+                    {recentPosts[0].category}
+                  </Badge>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4 text-xs font-bold text-muted-foreground uppercase tracking-widest">
+                  <div className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> {recentPosts[0].date}</div>
+                  <div className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {recentPosts[0].readingTime}</div>
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tight group-hover:text-primary transition-colors leading-tight">
+                  {recentPosts[0].title}
+                </h3>
+                <p className="text-muted-foreground text-lg leading-relaxed line-clamp-2 font-medium">
+                  {recentPosts[0].excerpt}
+                </p>
+                <Button variant="link" className="p-0 h-auto text-primary font-bold uppercase tracking-widest text-xs group-hover:gap-3 transition-all">
+                  Les artikkel <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Newsletter Signup */}
-      <section className="py-24 px-6 relative overflow-hidden bg-background">
+      {/* Newsletter Signup Header Section */}
+      <section className="py-24 px-6 bg-background relative overflow-hidden text-center">
+        <div className="max-w-3xl mx-auto space-y-6">
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            Hold deg oppdatert på markedet!
+          </h2>
+          <p className="text-xl text-muted-foreground font-medium max-w-2xl mx-auto">
+            Motta min månedlige oppdatering på boligmarkedet i Oslo. Faglig og ærlig om fortid, nåtid og fremtid.
+          </p>
+        </div>
+      </section>
+
+      {/* Newsletter Form in White Band */}
+      <section id="newsletter" className="py-16 px-6 bg-white relative overflow-hidden">
         <div className="max-w-5xl mx-auto">
-          <NewsletterSignup />
+          <NewsletterSignup variant="minimal" />
         </div>
       </section>
 
@@ -463,9 +478,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
             <div className="absolute inset-0 bg-primary/5 blur-[120px] -z-10 rounded-full" />
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2" />
             
-            <h2 className="text-5xl md:text-8xl font-bold tracking-tight mb-10 relative z-10">Scale with <br /><span className="text-muted-foreground">Nexus Analytics.</span></h2>
+            <h2 className="text-5xl md:text-8xl font-bold tracking-tight mb-10 relative z-10">Megler<br /><span className="text-muted-foreground">innsikt</span></h2>
             <p className="text-xl md:text-2xl text-muted-foreground mb-14 max-w-xl mx-auto relative z-10 font-medium">
-              Join the elite teams building the future of SaaS. Start your free trial today.
+              Få de beste analysene av boligmarkedet rett i innboksen.
             </p>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 relative z-10">
@@ -488,12 +503,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
             <div className="col-span-2 lg:col-span-2">
               <div className="flex items-center gap-2 mb-8">
                 <div className="w-10 h-10 rounded-xl bg-foreground flex items-center justify-center">
-                  <span className="text-background font-bold text-xl">N</span>
+                  <span className="text-background font-bold text-xl">M</span>
                 </div>
-                <span className="font-bold text-2xl tracking-tight">Nexus</span>
+                <span className="font-bold text-2xl tracking-tight">Meglerinnsikt</span>
               </div>
               <p className="text-muted-foreground max-w-sm mb-10 text-lg font-medium">
-                The high-density analytics platform for teams who demand precision and speed.
+                Analysesiden for deg som vil forstå boligmarkedet i Oslo bedre.
               </p>
               <div className="flex items-center gap-6 text-muted-foreground">
                 <MousePointer2 className="w-6 h-6 hover:text-foreground cursor-pointer transition-colors" />
@@ -529,7 +544,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
             </div>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-16 border-t border-border/40 text-muted-foreground font-bold uppercase tracking-widest text-[10px]">
-            <p>© 2024 Nexus Analytics Inc.</p>
+            <p>© 2024 Meglerinnsikt Inc.</p>
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />

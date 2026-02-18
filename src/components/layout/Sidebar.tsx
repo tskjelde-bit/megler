@@ -48,13 +48,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, onToggle, activeS
       )}>
         <div className="flex items-center gap-3 overflow-hidden">
           <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-            <span className="text-primary-foreground font-bold text-lg">N</span>
+            <span className="text-primary-foreground font-bold text-lg">M</span>
           </div>
           <div className={cn(
             "transition-all duration-300 ease-in-out overflow-hidden",
             isCollapsed ? "opacity-0 max-w-0" : "opacity-100 max-w-[150px]"
           )}>
-            <span className="font-bold text-xl tracking-tight whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/60">Nexus</span>
+            <span className="font-bold text-xl tracking-tight whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/60">Meglerinnsikt</span>
           </div>
         </div>
         
