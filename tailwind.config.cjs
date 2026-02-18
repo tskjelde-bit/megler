@@ -74,6 +74,10 @@ module.exports = {
   				'Geist Mono',
   				'IBM Plex Mono',
   				'monospace'
+  			],
+  			serif: [
+  				'Playfair Display',
+  				'serif'
   			]
   		},
   		animation: {
@@ -126,5 +130,8 @@ module.exports = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
+  ],
 } 
