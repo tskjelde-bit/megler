@@ -144,9 +144,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32">
         <div className="max-w-7xl mx-auto px-6 text-center">
           
-          <h1 className="hero-title text-5xl md:text-[5.5rem] lg:text-[5.5rem] xl:text-[5.5rem] font-bold tracking-tight mb-10 leading-[1.1] perspective-[1000px]">
-            <span className="inline-block pb-2">Boligmarkedet i Oslo</span><br />
-            <span className="text-[3.5rem] text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/30 inline-block pb-4">Megling møter analyse</span>
+          <h1 className="hero-title text-4xl md:text-[4.5rem] lg:text-[4.5rem] xl:text-[4.5rem] font-bold tracking-tight mb-10 leading-[1] perspective-[1000px]">
+            <span className="inline-block pb-0">Boligmarkedet i Oslo</span><br />
+            <span className="text-[3rem] md:text-[3.5rem] text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/30 inline-block pb-4">Megling møter analyse</span>
           </h1>
           
           <p className="hero-description text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
