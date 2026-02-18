@@ -26,6 +26,7 @@ import { cn } from '@/lib/utils';
 
 const accentColors = [
   { id: 'blue', color: 'bg-blue-500', label: 'Blue' },
+  { id: 'purple', color: 'bg-purple-500', label: 'Purple' },
   { id: 'rose', color: 'bg-rose-500', label: 'Rose' },
   { id: 'amber', color: 'bg-amber-500', label: 'Amber' },
   { id: 'emerald', color: 'bg-emerald-500', label: 'Emerald' },

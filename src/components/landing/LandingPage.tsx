@@ -113,7 +113,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
       {/* Background Mesh/Glow */}
       <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-primary/5 blur-[140px] rounded-full opacity-40" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-500/5 blur-[140px] rounded-full opacity-30" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-500/5 blur-[140px] rounded-full opacity-30" />
       </div>
 
       {/* Navigation */}
@@ -209,7 +209,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     {[
                       { icon: DollarSign, color: "text-blue-500", label: "MRR", val: "$50,234" },
-                      { icon: Users, color: "text-blue-500", label: "Users", val: "1,284" },
+                      { icon: Users, color: "text-purple-500", label: "Users", val: "1,284" },
                       { icon: Activity, color: "text-rose-500", label: "Churn", val: "2.4%" },
                       { icon: Heart, color: "text-emerald-500", label: "NPS", val: "72" }
                     ].map((stat, i) => (
@@ -304,13 +304,13 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
             </div>
 
             {/* Global Infrastructure */}
-            <div className="bento-item md:col-span-4 md:row-span-1 rounded-[2.5rem] border border-border/50 bg-card/30 p-10 flex flex-col justify-between group hover:border-primary/30 transition-colors">
+            <div className="bento-item md:col-span-4 md:row-span-1 rounded-[2.5rem] border border-border/50 bg-card/30 p-10 flex flex-col justify-between group hover:border-purple-500/30 transition-colors">
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold">Global Edge</h3>
                 <p className="text-muted-foreground font-medium">Nodes in 150+ locations worldwide for zero-latency tracking.</p>
               </div>
               <div className="relative h-32 w-full flex items-center justify-center overflow-hidden">
-                <Globe className="w-32 h-32 text-primary/10 group-hover:scale-110 group-hover:text-primary/20 transition-all duration-700" />
+                <Globe className="w-32 h-32 text-purple-500/10 group-hover:scale-110 group-hover:text-purple-500/20 transition-all duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
               </div>
             </div>
