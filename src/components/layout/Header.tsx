@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Search, Bell, User, LogOut } from 'lucide-react';
+import { Search, Bell, User, LogOut, Sun, Moon } from 'lucide-react';
+import { useTheme } from 'next-themes';
 import { Kbd } from '@/components/ui/kbd';
 import { useAuth } from '@/hooks/use-auth';
 import { toast } from 'sonner';
@@ -26,6 +27,7 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   const { user, logout } = useAuth();
+  const { theme, setTheme } = useTheme();
   const [hasNotification, setHasNotification] = useState(true);
   const formattedSection = activeSection.charAt(0).toUpperCase() + activeSection.slice(1);
 
@@ -48,6 +50,14 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
       </div>
 
       <div className="flex items-center gap-4">
+        <button 
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+          className="p-2 text-muted-foreground/60 hover:text-foreground hover:bg-secondary/30 rounded-lg transition-all"
+          title="Toggle theme"
+        >
+          {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+        </button>
+
         <button 
           className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-border/40 bg-secondary/20 text-muted-foreground/60 hover:border-primary/30 hover:bg-secondary/40 transition-all group min-w-[200px]"
           onClick={() => window.dispatchEvent(new CustomEvent('toggle-command-palette'))}

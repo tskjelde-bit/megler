@@ -20,9 +20,16 @@ import {
   Heart,
   LayoutDashboard,
   Sparkles,
-  Layers
+  Layers,
+  Play, 
+  CheckCircle2,
+  Calendar,
+  Clock
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Badge } from '@/components/ui/badge';
+import { NewsletterSignup } from '@/components/dashboard/NewsletterSignup';
+import { mockPosts } from '@/components/dashboard/BlogPage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,6 +39,9 @@ interface LandingPageProps {
 
 export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
   const container = useRef<HTMLDivElement>(null);
+
+  const featuredPost = mockPosts[0];
+  const recentPosts = mockPosts.slice(1, 4);
 
   useGSAP(() => {
     // Hero Animations
@@ -363,6 +373,97 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
               <p className="text-xs font-black uppercase tracking-[0.2em] opacity-60">Expert Support</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Featured Blog Post & Recent Posts */}
+      <section className="py-24 px-6 bg-secondary/10 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border/40 to-transparent" />
+        <div className="max-w-7xl mx-auto space-y-16">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="space-y-4">
+              <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 font-bold uppercase tracking-widest text-[10px] px-3 py-1">
+                From the Blog
+              </Badge>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tighter leading-tight">
+                Nexus Insights & Stories
+              </h2>
+              <p className="text-xl text-muted-foreground font-medium max-w-xl">
+                The latest trends in SaaS analytics, engineering performance, and product design.
+              </p>
+            </div>
+            <Button variant="ghost" className="group text-sm font-bold uppercase tracking-widest text-muted-foreground hover:text-foreground">
+              View all posts <ChevronRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Featured Post Card */}
+            <div className="lg:col-span-7 group cursor-pointer space-y-6">
+              <div className="aspect-[16/9] rounded-3xl overflow-hidden border border-border/40 shadow-2xl relative">
+                <img 
+                  src={featuredPost.featuredImage} 
+                  alt={featuredPost.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute top-6 left-6">
+                  <Badge variant="secondary" className="bg-background/80 backdrop-blur-md text-[10px] font-bold uppercase tracking-widest px-3 py-1 border border-white/10">
+                    {featuredPost.category}
+                  </Badge>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4 text-xs font-bold text-muted-foreground uppercase tracking-widest">
+                  <div className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> {featuredPost.date}</div>
+                  <div className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> {featuredPost.readingTime}</div>
+                </div>
+                <h3 className="text-3xl font-bold tracking-tight group-hover:text-primary transition-colors leading-tight">
+                  {featuredPost.title}
+                </h3>
+                <p className="text-muted-foreground text-lg leading-relaxed line-clamp-2 font-medium">
+                  {featuredPost.excerpt}
+                </p>
+                <Button variant="link" className="p-0 h-auto text-primary font-bold uppercase tracking-widest text-xs group-hover:gap-3 transition-all">
+                  Read article <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Recent Posts List */}
+            <div className="lg:col-span-5 space-y-6">
+              <h4 className="text-sm font-bold uppercase tracking-widest text-muted-foreground/60 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                Recent Posts
+              </h4>
+              <div className="space-y-8">
+                {recentPosts.map((post) => (
+                  <div key={post.id} className="group cursor-pointer flex gap-6">
+                    <div className="w-32 h-24 rounded-2xl overflow-hidden border border-border/40 shrink-0">
+                      <img src={post.featuredImage} alt={post.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+                    </div>
+                    <div className="space-y-2 py-1">
+                      <div className="flex items-center gap-2">
+                        <Badge variant="ghost" className="p-0 text-[10px] font-bold uppercase tracking-widest text-primary hover:bg-transparent">
+                          {post.category}
+                        </Badge>
+                        <span className="text-[10px] text-muted-foreground/60 font-bold tracking-widest">• {post.readingTime}</span>
+                      </div>
+                      <h5 className="text-base font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">
+                        {post.title}
+                      </h5>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Signup */}
+      <section className="py-24 px-6 relative overflow-hidden bg-background">
+        <div className="max-w-5xl mx-auto">
+          <NewsletterSignup />
         </div>
       </section>
 

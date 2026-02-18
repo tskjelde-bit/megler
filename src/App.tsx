@@ -7,6 +7,9 @@ import { SettingsPage } from './components/dashboard/SettingsPage';
 import { CustomersPage } from './components/dashboard/CustomersPage';
 import { GeographyPage } from './components/dashboard/GeographyPage';
 import { IntegrationsPage } from './components/dashboard/IntegrationsPage';
+import { AboutPage } from './components/dashboard/AboutPage';
+import { BlogPage, BlogPost, mockPosts } from './components/dashboard/BlogPage';
+import { BlogPostPage } from './components/dashboard/BlogPostPage';
 import { LandingPage } from './components/landing/LandingPage';
 import { Skeleton } from './components/ui/skeleton';
 import { 
@@ -37,6 +40,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [activeSection, setActiveSection] = useState('overview');
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const [locations, setLocations] = useState<Location[]>([]);
   const [currentMRR, setCurrentMRR] = useState<number>(0);
 
@@ -172,6 +176,16 @@ function App() {
       );
     }
 
+    if (selectedPost && activeSection === 'blog') {
+      return (
+        <BlogPostPage 
+          post={selectedPost} 
+          onBack={() => setSelectedPost(null)} 
+          onPostClick={(post) => setSelectedPost(post)}
+        />
+      );
+    }
+
     switch (activeSection) {
       case 'overview':
         return (
@@ -200,6 +214,10 @@ function App() {
         return <GeographyPage />;
       case 'integrations':
         return <IntegrationsPage />;
+      case 'blog':
+        return <BlogPage onPostClick={(post) => setSelectedPost(post)} />;
+      case 'about':
+        return <AboutPage />;
       case 'billing':
         return (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

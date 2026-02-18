@@ -9,7 +9,9 @@ import {
   ChevronRight,
   Globe,
   CreditCard,
-  Zap
+  Zap,
+  BookOpen,
+  Info
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -26,7 +28,9 @@ const navItems = [
   { id: 'customers', icon: Users, label: 'Customers' },
   { id: 'geography', icon: Globe, label: 'Geography' },
   { id: 'billing', icon: CreditCard, label: 'Billing' },
+  { id: 'blog', icon: BookOpen, label: 'Blog' },
   { id: 'integrations', icon: Zap, label: 'Integrations' },
+  { id: 'about', icon: Info, label: 'About' },
   { id: 'settings', icon: Settings, label: 'Settings' },
 ];
 
