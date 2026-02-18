@@ -2,7 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { blink } from '@/lib/blink';
 import { useAuth } from '@/hooks/use-auth';
 
-type AccentColor = 'blue' | 'purple' | 'rose' | 'amber' | 'emerald';
+type AccentColor = 'blue' | 'rose' | 'amber' | 'emerald';
 
 interface AccentContextType {
   accent: AccentColor;
@@ -15,9 +15,9 @@ export const AccentProvider: React.FC<{ children: React.ReactNode }> = ({ childr
   const { user } = useAuth();
   const [accent, setAccent] = useState<AccentColor>(() => {
     if (typeof window !== 'undefined') {
-      return (localStorage.getItem('accent-color') as AccentColor) || 'purple';
+      return (localStorage.getItem('accent-color') as AccentColor) || 'blue';
     }
-    return 'purple';
+    return 'blue';
   });
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export const AccentProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     const root = window.document.documentElement;
     
     // Remove all accent classes
-    root.classList.remove('accent-blue', 'accent-purple', 'accent-rose', 'accent-amber', 'accent-emerald');
+    root.classList.remove('accent-blue', 'accent-rose', 'accent-amber', 'accent-emerald');
     
     // Add new accent class
     root.classList.add(`accent-${accent}`);
