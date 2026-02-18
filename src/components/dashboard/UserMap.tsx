@@ -68,8 +68,8 @@ export const UserMap: React.FC<UserMapProps> = ({ locations = [] }) => {
                        cy={y} 
                        r="4" 
                        fill="hsl(var(--primary))" 
-                       className="shadow-[0_0_12px_rgba(69,170,247,0.8)]"
-                       >
+                       className="shadow-[0_0_12px_rgba(59,130,246,0.8)]"
+                     >
                        <title>{loc.name}: {loc.share}</title>
                      </circle>
                    </g>
@@ -95,7 +95,7 @@ export const UserMap: React.FC<UserMapProps> = ({ locations = [] }) => {
             <div className="flex items-center gap-3">
               <span className="text-xs font-bold">42%</span>
               <div className="w-16 h-1 bg-secondary/30 rounded-full overflow-hidden">
-                <div className="h-full bg-primary w-[42%] rounded-full shadow-[0_0_8px_rgba(69,170,247,0.4)]" />
+                <div className="h-full bg-primary w-[42%] rounded-full shadow-[0_0_8px_rgba(59,130,246,0.4)]" />
               </div>
             </div>
           </div>
