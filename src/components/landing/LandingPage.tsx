@@ -258,17 +258,6 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
         </div>
       </section>
 
-      {/* Social Proof */}
-      <section className="py-24 border-y border-border/40 bg-secondary/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-center text-[10px] font-black text-muted-foreground uppercase tracking-[0.3em] mb-16">Powering the next generation of SaaS</p>
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale hover:opacity-100 transition-opacity duration-700 cursor-default">
-            {['Vercel', 'Linear', 'Stripe', 'Supabase', 'GitHub', 'Figma'].map((logo) => (
-              <span key={logo} className="text-3xl font-bold tracking-tighter hover:scale-110 transition-transform">{logo}</span>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Bento Solutions Section */}
       <section id="features" className="py-24 relative overflow-hidden bg-background">
