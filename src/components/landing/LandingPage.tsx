@@ -143,24 +143,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <div className="hero-badge inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/30 border border-border/50 text-xs font-medium mb-8 backdrop-blur-md">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            <span className="text-muted-foreground font-semibold">Nyhet</span>
-            <span className="text-border mx-1">|</span>
-            <span className="text-foreground/80">Boligprisstatistikk for februar er klar</span>
-            <ChevronRight className="w-3 h-3 text-muted-foreground" />
-          </div>
           
-          <h1 className="hero-title text-5xl md:text-7xl lg:text-7xl xl:text-7xl font-bold tracking-tight mb-10 leading-[1.1] perspective-[1000px]">
-            <span className="inline-block pb-2">Boligmarkeder i Oslo</span><br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/30 inline-block pb-4">Megling møter analyse</span>
+          <h1 className="hero-title text-5xl md:text-[5.5rem] lg:text-[5.5rem] xl:text-[5.5rem] font-bold tracking-tight mb-10 leading-[1.1] perspective-[1000px]">
+            <span className="inline-block pb-2">Boligmarkedet i Oslo</span><br />
+            <span className="text-[3.5rem] text-transparent bg-clip-text bg-gradient-to-b from-foreground to-foreground/30 inline-block pb-4">Megling møter analyse</span>
           </h1>
           
           <p className="hero-description text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
             Motta min månedlige oppdatering på boligmarkedet i Oslo. Faglig og ærlig om fortid, nåtid og fremtid.
           </p>
           
-          <div className="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4 mb-24">
+          <div className="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <Button variant="premium" size="lg" className="h-14 px-10 rounded-full text-base min-w-[200px]" onClick={() => document.getElementById('newsletter')?.scrollIntoView({ behavior: 'smooth' })}>
               Nyhetsbrev
             </Button>
