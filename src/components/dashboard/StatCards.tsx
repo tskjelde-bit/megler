@@ -106,7 +106,7 @@ export const StatCardsGrid: React.FC = () => {
           change: "+12.5%",
           trend: "up" as const,
           icon: DollarSign,
-          color: "#3b82f6",
+          color: "#45aaf7",
           data: [
             { value: 40 }, { value: 35 }, { value: 45 }, { value: 42 }, 
             { value: 50 }, { value: 48 }, { value: 55 }, { value: 52 }, 

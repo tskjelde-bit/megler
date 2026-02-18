@@ -75,7 +75,7 @@ export const RevenueChart: React.FC<RevenueChartProps> = ({ currentMRR }) => {
         </div>
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-secondary/20 border border-border/20 transition-colors group-hover:border-primary/20">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(59,130,246,0.5)] animate-pulse"></div>
+            <div className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(69,170,247,0.5)] animate-pulse"></div>
             <span className="text-[10px] font-bold uppercase tracking-wider text-muted-foreground">Revenue</span>
           </div>
         </div>
