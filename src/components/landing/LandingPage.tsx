@@ -334,27 +334,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="stats-section py-40 overflow-hidden border-y border-border/40 bg-foreground text-background">
+      {/* Newsletter Signup White Panel (formerly Stats) */}
+      <section id="newsletter" className="py-24 overflow-hidden border-y border-border/40 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 md:gap-24 text-center">
-            <div className="stat-item space-y-2">
-              <p className="text-5xl md:text-8xl font-black tracking-tighter">$1.2B+</p>
-              <p className="text-xs font-black uppercase tracking-[0.2em] opacity-60">Revenue Tracked</p>
-            </div>
-            <div className="stat-item space-y-2">
-              <p className="text-5xl md:text-8xl font-black tracking-tighter">45k+</p>
-              <p className="text-xs font-black uppercase tracking-[0.2em] opacity-60">Daily Sessions</p>
-            </div>
-            <div className="stat-item space-y-2">
-              <p className="text-5xl md:text-8xl font-black tracking-tighter">99.9%</p>
-              <p className="text-xs font-black uppercase tracking-[0.2em] opacity-60">Uptime SLA</p>
-            </div>
-            <div className="stat-item space-y-2">
-              <p className="text-5xl md:text-8xl font-black tracking-tighter">24/7</p>
-              <p className="text-xs font-black uppercase tracking-[0.2em] opacity-60">Expert Support</p>
-            </div>
-          </div>
+          <NewsletterSignup variant="full" className="bg-transparent py-0 px-0" />
         </div>
       </section>
 
@@ -442,25 +425,6 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Newsletter Signup Header Section */}
-      <section className="py-24 px-6 bg-background relative overflow-hidden text-center">
-        <div className="max-w-3xl mx-auto space-y-6">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-            Hold deg oppdatert på markedet!
-          </h2>
-          <p className="text-xl text-muted-foreground font-medium max-w-2xl mx-auto">
-            Motta min månedlige oppdatering på boligmarkedet i Oslo. Faglig og ærlig om fortid, nåtid og fremtid.
-          </p>
-        </div>
-      </section>
-
-      {/* Newsletter Form in White Band */}
-      <section id="newsletter" className="py-16 px-6 bg-white relative overflow-hidden">
-        <div className="max-w-5xl mx-auto">
-          <NewsletterSignup variant="minimal" />
         </div>
       </section>
 
