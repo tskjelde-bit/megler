@@ -47,6 +47,37 @@
     --font-sans: 'Geist Sans', 'Inter', sans-serif;
     --font-mono: 'Geist Mono', 'IBM Plex Mono', monospace;
     --font-serif: 'Playfair Display', serif;
+
+    /* Typography Scale */
+    --font-size-display: 4.5rem; /* 72px */
+    --font-size-h1: 3.5rem;      /* 56px */
+    --font-size-h2: 2.5rem;      /* 40px */
+    --font-size-h3: 1.75rem;     /* 28px */
+    --font-size-body-large: 1.25rem; /* 20px */
+    --font-size-body: 1rem;       /* 16px */
+    --font-size-body-small: 0.875rem; /* 14px */
+    --font-size-caption: 0.75rem;   /* 12px */
+
+    /* Font Weights */
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Letter Spacing */
+    --letter-spacing-tighter: -0.05em;
+    --letter-spacing-tight: -0.025em;
+    --letter-spacing-normal: 0em;
+    --letter-spacing-wide: 0.025em;
+    --letter-spacing-wider: 0.05em;
+
+    /* Line Heights */
+    --line-height-display: 1.1;
+    --line-height-tight: 1.2;
+    --line-height-snug: 1.375;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.625;
   }
 
   .dark {
@@ -126,17 +157,35 @@
   }
 
   body {
-    @apply bg-background text-foreground;
-    font-family: var(--font-sans), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-    letter-spacing: var(--tracking-normal);
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-normal);
+    letter-spacing: var(--letter-spacing-normal);
   }
 
-  html {
-    scroll-behavior: smooth;
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+    line-height: var(--line-height-tight);
   }
 
-  h1, h2, h3, h4, h5, h6, .font-serif, .prose h1, .prose h2, .prose h3, .prose h4 {
+  h1 { font-size: var(--font-size-h1); }
+  h2 { font-size: var(--font-size-h2); }
+  h3 { font-size: var(--font-size-h3); }
+
+  .display-text {
+    font-size: var(--font-size-display);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-tighter);
+    line-height: var(--line-height-display);
+  }
+
+  .font-serif {
     font-family: var(--font-serif);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
   }
 }
 

@@ -74,10 +74,10 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
     <div className={cn("py-12 px-6 bg-white text-black", className)}>
       <div className="max-w-4xl mx-auto flex flex-col items-center text-center space-y-8">
         <div className="space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-black">
+          <h2 className="text-h2 font-bold tracking-tight text-black">
             Hold deg oppdatert på markedet!
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-body-large text-gray-600 max-w-2xl mx-auto">
             Motta min månedlige oppdatering på boligmarkedet i Oslo. Faglig og ærlig om fortid, nåtid og fremtid.
           </p>
         </div>

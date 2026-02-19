@@ -146,10 +146,10 @@ export const BlogPage: React.FC<{ onPostClick: (post: BlogPost) => void }> = ({ 
             <Badge variant="secondary" className="bg-primary text-primary-foreground font-bold uppercase tracking-widest text-[10px] px-3 py-1">
               Featured
             </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white leading-tight">
+            <h2 className="text-h1 font-bold tracking-tight text-white leading-tight">
               {featuredPost.title}
             </h2>
-            <p className="text-lg text-white/80 font-medium">
+            <p className="text-body-large text-white/80 font-medium">
               {featuredPost.excerpt}
             </p>
             <div className="flex items-center gap-4 pt-2">
@@ -214,12 +214,12 @@ export const BlogPage: React.FC<{ onPostClick: (post: BlogPost) => void }> = ({ 
               </div>
             </div>
             <CardHeader className="p-6 pb-2">
-              <CardTitle className="text-xl font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">
+              <CardTitle className="text-h3 font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">
                 {post.title}
               </CardTitle>
             </CardHeader>
             <CardContent className="px-6 py-2 flex-grow">
-              <p className="text-muted-foreground text-sm line-clamp-3 leading-relaxed">
+              <p className="text-muted-foreground text-body-small line-clamp-3 leading-relaxed">
                 {post.excerpt}
               </p>
             </CardContent>

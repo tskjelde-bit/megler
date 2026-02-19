@@ -59,7 +59,7 @@ const StatCard: React.FC<StatCardProps> = ({ title, value, change, trend, icon: 
           </div>
         ) : (
           <>
-            <div className="text-3xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/70">
+            <div className="text-h2 font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/70">
               {value}
             </div>
             <div className="flex items-center gap-2 mt-2">

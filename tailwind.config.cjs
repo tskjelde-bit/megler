@@ -59,6 +59,37 @@ module.exports = {
   				'5': 'hsl(var(--chart-5))'
   			}
   		},
+  		fontSize: {
+  			display: 'var(--font-size-display)',
+  			h1: 'var(--font-size-h1)',
+  			h2: 'var(--font-size-h2)',
+  			h3: 'var(--font-size-h3)',
+  			'body-large': 'var(--font-size-body-large)',
+  			body: 'var(--font-size-body)',
+  			'body-small': 'var(--font-size-body-small)',
+  			caption: 'var(--font-size-caption)'
+  		},
+  		fontWeight: {
+  			light: 'var(--font-weight-light)',
+  			regular: 'var(--font-weight-regular)',
+  			medium: 'var(--font-weight-medium)',
+  			semibold: 'var(--font-weight-semibold)',
+  			bold: 'var(--font-weight-bold)'
+  		},
+  		letterSpacing: {
+  			tighter: 'var(--letter-spacing-tighter)',
+  			tight: 'var(--letter-spacing-tight)',
+  			normal: 'var(--letter-spacing-normal)',
+  			wide: 'var(--letter-spacing-wide)',
+  			wider: 'var(--letter-spacing-wider)'
+  		},
+  		lineHeight: {
+  			display: 'var(--line-height-display)',
+  			tight: 'var(--line-height-tight)',
+  			snug: 'var(--line-height-snug)',
+  			normal: 'var(--line-height-normal)',
+  			relaxed: 'var(--line-height-relaxed)'
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',

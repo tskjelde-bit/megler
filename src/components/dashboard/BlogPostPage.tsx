@@ -57,7 +57,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, onBack, onPost
           <Badge variant="secondary" className="bg-primary shadow-lg shadow-primary/20 text-xs font-bold uppercase tracking-widest px-3 py-1">
             {post.category}
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
+          <h1 className="text-h2 md:text-h1 font-extrabold tracking-tight leading-tight">
             {post.title}
           </h1>
           
@@ -107,7 +107,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, onBack, onPost
         </div>
 
         <div 
-          className="prose prose-invert max-w-none prose-headings:font-bold prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:text-lg prose-li:text-muted-foreground prose-strong:text-foreground prose-blockquote:border-l-primary prose-blockquote:bg-primary/5 prose-blockquote:p-6 prose-blockquote:rounded-r-2xl"
+          className="prose prose-invert max-w-none prose-headings:font-bold prose-h2:text-h2 prose-h2:mt-12 prose-h2:mb-6 prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:text-body-large prose-li:text-muted-foreground prose-strong:text-foreground prose-blockquote:border-l-primary prose-blockquote:bg-primary/5 prose-blockquote:p-6 prose-blockquote:rounded-r-2xl"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
 
@@ -115,7 +115,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, onBack, onPost
         <div className="pt-24 space-y-8 border-t border-border/20">
           <div className="flex items-center gap-3">
             <BookOpen className="w-6 h-6 text-primary" />
-            <h2 className="text-3xl font-bold">Related Posts</h2>
+            <h2 className="text-h2 font-bold">Related Posts</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {relatedPosts.map((related) => (
