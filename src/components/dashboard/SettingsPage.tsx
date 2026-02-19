@@ -25,6 +25,7 @@ import {
 import { cn } from '@/lib/utils';
 
 const accentColors = [
+  { id: 'lime', color: 'bg-lime-500', label: 'Lime' },
   { id: 'blue', color: 'bg-blue-500', label: 'Blue' },
   { id: 'purple', color: 'bg-purple-500', label: 'Purple' },
   { id: 'rose', color: 'bg-rose-500', label: 'Rose' },
@@ -188,7 +189,7 @@ export const SettingsPage: React.FC = () => {
             <Card className="bg-card/50 border-border">
               <CardHeader>
                 <CardTitle className="text-sm font-medium">Theme</CardTitle>
-                <CardDescription>Choose how Nexus looks to you.</CardDescription>
+                <CardDescription>Choose how Blink 2 looks to you.</CardDescription>
               </CardHeader>
               <CardContent className="grid grid-cols-3 gap-2">
                 <Button 
@@ -297,7 +298,7 @@ export const SettingsPage: React.FC = () => {
                     <User className="w-6 h-6 text-muted-foreground" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium">{user?.displayName || 'Nexus User'}</p>
+                    <p className="text-sm font-medium">{user?.displayName || 'Blink 2 User'}</p>
                     <p className="text-xs text-muted-foreground">{user?.email}</p>
                   </div>
                 </div>

@@ -14,6 +14,7 @@ import {
   Info
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useAuth } from '@/hooks/use-auth';
 
 interface SidebarProps {
   isCollapsed: boolean;
@@ -35,6 +36,8 @@ const navItems = [
 ];
 
 export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, onToggle, activeSection, onSectionChange }) => {
+  const { user } = useAuth();
+  
   return (
     <aside 
       className={cn(
@@ -47,14 +50,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, onToggle, activeS
         isCollapsed ? "justify-center" : "justify-between"
       )}>
         <div className="flex items-center gap-3 overflow-hidden">
-          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-            <span className="text-primary-foreground font-bold text-lg">M</span>
+          <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shrink-0 shadow-[0_0_15px_rgba(173,250,29,0.3)] transition-transform hover:rotate-12">
+            <Zap className="w-5 h-5 text-primary-foreground fill-current" />
           </div>
           <div className={cn(
             "transition-all duration-300 ease-in-out overflow-hidden",
             isCollapsed ? "opacity-0 max-w-0" : "opacity-100 max-w-[150px]"
           )}>
-            <span className="font-bold text-xl tracking-tight whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/60">Meglerinnsikt</span>
+            <span className="font-bold text-xl tracking-tighter whitespace-nowrap bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/60">Blink 2</span>
           </div>
         </div>
         
@@ -108,13 +111,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ isCollapsed, onToggle, activeS
           "flex items-center gap-3 p-2 rounded-lg hover:bg-secondary/30 transition-colors cursor-pointer",
           isCollapsed ? "justify-center" : ""
         )}>
-           <div className="w-8 h-8 rounded-full bg-secondary/50 border border-border/40 flex items-center justify-center text-[10px] font-bold">
-             JD
+           <div className="w-8 h-8 rounded-full bg-primary/20 border border-primary/40 flex items-center justify-center text-[10px] font-bold text-primary">
+             {user?.displayName?.[0] || 'B'}
            </div>
            {!isCollapsed && (
              <div className="flex flex-col min-w-0">
-               <span className="text-xs font-bold truncate">John Doe</span>
-               <span className="text-[10px] text-muted-foreground truncate">john@nexus.com</span>
+               <span className="text-xs font-bold truncate">{user?.displayName || 'Blink 2 User'}</span>
+               <span className="text-[10px] text-muted-foreground truncate">{user?.email || 'unlocked@blink.systems'}</span>
              </div>
            )}
         </div>

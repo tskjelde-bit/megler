@@ -152,6 +152,13 @@
     --primary-foreground: 0 0% 100%;
   }
 
+  .accent-lime {
+    --primary: 84 94% 53%;
+    --sidebar-primary: 84 94% 53%;
+    --ring: 84 94% 53%;
+    --primary-foreground: 240 10% 3.9%;
+  }
+
   * {
     @apply border-border;
   }

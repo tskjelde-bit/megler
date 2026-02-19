@@ -223,32 +223,21 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="md:col-span-2 space-y-6">
               <div className="bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6">
-                <h3 className="text-lg font-bold mb-4">Payment History</h3>
-                <div className="space-y-4">
-                  {[1, 2, 3, 4, 5].map((i) => (
-                    <div key={i} className="flex items-center justify-between py-3 border-b border-border last:border-0">
-                      <div className="flex flex-col">
-                        <span className="text-sm font-medium">Invoice #INV-2024-00{i}</span>
-                        <span className="text-xs text-muted-foreground">Paid on May {10 + i}, 2024</span>
-                      </div>
-                      <div className="flex items-center gap-4">
-                        <span className="text-sm font-bold">$499.00</span>
-                        <Button variant="ghost" size="sm" className="h-8 text-xs" onClick={() => toast.info('Invoice PDF generated', { description: `Invoice #INV-2024-00${i} is ready for download.` })}>View PDF</Button>
-                      </div>
-                    </div>
-                  ))}
+                <h3 className="text-lg font-bold mb-4">Usage Analytics</h3>
+                <div className="space-y-4 text-muted-foreground italic">
+                  Everything is unlocked. No credit restrictions apply to this account.
                 </div>
               </div>
             </div>
             <div className="space-y-6">
-              <div className="bg-primary text-primary-foreground rounded-xl p-6 space-y-4">
-                <h3 className="text-lg font-bold">Pro Plan</h3>
-                <p className="text-sm opacity-90">Your next billing date is June 12, 2024.</p>
+              <div className="bg-primary text-primary-foreground rounded-xl p-6 space-y-4 shadow-[0_0_30px_rgba(173,250,29,0.3)]">
+                <h3 className="text-lg font-bold">Premium Unlocked</h3>
+                <p className="text-sm opacity-90">Your account has lifetime access to all premium perks.</p>
                 <div className="pt-4">
-                  <span className="text-3xl font-bold">$499</span>
-                  <span className="text-sm opacity-80 ml-1">/mo</span>
+                  <span className="text-3xl font-bold">$0</span>
+                  <span className="text-sm opacity-80 ml-1">/lifetime</span>
                 </div>
-                <Button variant="secondary" className="w-full" onClick={() => toast.info('Plan upgrade', { description: 'Contact sales@nexus.com to upgrade your plan.' })}>Upgrade Plan</Button>
+                <Button variant="secondary" className="w-full font-bold">Enjoy Blink 2</Button>
               </div>
             </div>
           </div>
@@ -309,7 +298,7 @@ function App() {
               const url = URL.createObjectURL(blob);
               const a = document.createElement('a');
               a.href = url;
-              a.download = `nexus-${activeSection}-export.json`;
+              a.download = `blink-2-${activeSection}-export.json`;
               a.click();
               URL.revokeObjectURL(url);
               toast.success('Data exported successfully');

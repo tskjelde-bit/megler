@@ -38,7 +38,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink href="#" className="text-[11px] font-bold uppercase tracking-widest text-muted-foreground/60 hover:text-foreground transition-colors" onClick={(e: React.MouseEvent) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate-section', { detail: 'overview' })); }}>
-                Meglerinnsikt
+                Blink 2
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator className="opacity-20" />
@@ -63,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           onClick={() => window.dispatchEvent(new CustomEvent('toggle-command-palette'))}
         >
           <Search className="w-3.5 h-3.5 group-hover:text-primary transition-colors" />
-          <span className="text-[11px] font-medium tracking-wide">Søk Meglerinnsikt...</span>
+          <span className="text-[11px] font-medium tracking-wide">Search Blink 2...</span>
           <div className="ml-auto flex items-center gap-1 opacity-60">
             <Kbd className="bg-background/50 border-border/40 px-1 py-0 min-w-0 h-5">
               <span className="text-[10px]">⌘</span>
@@ -103,7 +103,7 @@ export const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             <DropdownMenuContent align="end" className="w-56 border-border/40 bg-background/95 backdrop-blur-xl p-2 shadow-2xl">
               <DropdownMenuLabel className="px-2 py-1.5">
                 <div className="flex flex-col space-y-0.5">
-                  <p className="text-xs font-bold leading-none">{user?.displayName || 'Meglerinnsikt Bruker'}</p>
+                  <p className="text-xs font-bold leading-none">{user?.displayName || 'Blink 2 User'}</p>
                   <p className="text-[10px] leading-none text-muted-foreground/60">{user?.email}</p>
                 </div>
               </DropdownMenuLabel>
