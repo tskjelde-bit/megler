@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowUpRight, ArrowDownRight, Users, Zap, Activity, Heart, Shield, Loader2 } from 'lucide-react';
+import { ArrowUpRight, ArrowDownRight, Users, DollarSign, Activity, Heart, Loader2 } from 'lucide-react';
 import { ResponsiveContainer, AreaChart, Area } from 'recharts';
 import { cn } from '@/lib/utils';
 import { blink } from '@/lib/blink';
@@ -100,32 +100,6 @@ export const StatCardsGrid: React.FC = () => {
       // but we could pull them from a settings/metrics table if we added one
       
       const dynamicStats = [
-        {
-          title: "Credits Used",
-          value: "Unlimited",
-          change: "0.00$",
-          trend: "down" as const,
-          icon: Zap,
-          color: "#ADFA1D",
-          data: [
-            { value: 10 }, { value: 10 }, { value: 10 }, { value: 10 }, 
-            { value: 10 }, { value: 10 }, { value: 10 }, { value: 10 }, 
-            { value: 10 }, { value: 10 }, { value: 10 }, { value: 10 }
-          ]
-        },
-        {
-          title: "Premium Status",
-          value: "Unlocked",
-          change: "Lifetime",
-          trend: "up" as const,
-          icon: Shield,
-          color: "#8b5cf6",
-          data: [
-            { value: 100 }, { value: 100 }, { value: 100 }, { value: 100 }, 
-            { value: 100 }, { value: 100 }, { value: 100 }, { value: 100 }, 
-            { value: 100 }, { value: 100 }, { value: 100 }, { value: 100 }
-          ]
-        },
         {
           title: "MRR",
           value: `${totalMRR.toLocaleString()}`,
