@@ -98,12 +98,18 @@ module.exports = {
   		fontFamily: {
   			sans: [
   				'Geist Sans',
-  				'Inter',
+  				'Manrope',
+  				'DM Sans',
+  				'sans-serif'
+  			],
+  			display: [
+  				'Space Grotesk',
+  				'Geist Sans',
   				'sans-serif'
   			],
   			mono: [
   				'Geist Mono',
-  				'IBM Plex Mono',
+  				'Space Mono',
   				'monospace'
   			],
   			serif: [

@@ -144,7 +144,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32">
         <div className="max-w-7xl mx-auto px-6 text-center">
           
-          <h1 className="hero-title display-text font-serif italic mb-10 leading-display perspective-[1000px]">
+          <h1 className="hero-title display-text font-serif italic mb-10 leading-display perspective-[1000px] text-balance">
             <span className="inline-block pb-2 text-[#38bdfa]">Boligmarkedet i Oslo</span><br />
             <span className="inline-block pb-4 text-white/70 font-light lowercase">Megling møter analyse.</span>
           </h1>
@@ -256,8 +256,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
       <section id="features" className="py-24 relative overflow-hidden bg-background">
         <div className="max-w-7xl mx-auto px-6">
           <div className="reveal-section text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-h1 font-bold mb-8">Built for <span className="text-muted-foreground">modern operators</span></h2>
-            <p className="text-body-large text-muted-foreground leading-relaxed font-medium">
+            <h2 className="text-h1 font-bold mb-8 text-balance">Built for <span className="text-muted-foreground">modern operators</span></h2>
+            <p className="text-body-large text-muted-foreground leading-relaxed font-medium text-balance">
               We've re-engineered the analytics stack from the ground up to give you insights that were previously impossible to reach.
             </p>
           </div>
@@ -350,10 +350,10 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
               <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 font-bold uppercase tracking-widest text-[10px] px-3 py-1">
                 Meglerinnsikt
               </Badge>
-              <h2 className="text-h2 font-black tracking-tighter leading-tight">
+              <h2 className="text-h2 font-black tracking-tighter leading-tight text-balance">
                 Innsikt og analyser
               </h2>
-              <p className="text-body-large text-muted-foreground font-medium max-w-2xl">
+              <p className="text-body-large text-muted-foreground font-medium max-w-2xl text-balance">
                 Blogginnsikten jeg deler gjennom meglerinnsikt gir deg et tydeligere bilde av markedet – og et bedre grunnlag for å ta smarte beslutninger før du går i gang med salg eller kjøp.
               </p>
             </div>
@@ -435,8 +435,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
             <div className="absolute inset-0 bg-primary/5 blur-[120px] -z-10 rounded-full" />
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2" />
             
-            <h2 className="text-h1 md:text-display font-bold mb-10 relative z-10">Megler<br /><span className="text-muted-foreground">innsikt</span></h2>
-            <p className="text-body-large md:text-h3 text-muted-foreground mb-14 max-w-xl mx-auto relative z-10 font-medium">
+            <h2 className="text-h1 md:text-display font-bold mb-10 relative z-10 text-balance">Megler<br /><span className="text-muted-foreground">innsikt</span></h2>
+            <p className="text-body-large md:text-h3 text-muted-foreground mb-14 max-w-xl mx-auto relative z-10 font-medium text-balance">
               Få de beste analysene av boligmarkedet rett i innboksen.
             </p>
             
