@@ -51,7 +51,7 @@ export const AboutPage: React.FC = () => {
       {/* Bio Section */}
       <section className="space-y-6">
         <h2 className="text-2xl font-bold border-b border-border/40 pb-2">About Us</h2>
-        <div className="prose prose-invert max-w-none text-muted-foreground leading-relaxed">
+        <div className="blog-content max-w-none text-muted-foreground leading-relaxed">
           <p>
             Nexus Analytics was born out of a desire to make complex data accessible and actionable. Inspired by the clean aesthetics of Linear and Vercel, we've built a dashboard that doesn't just show numbers, but tells a story.
           </p>

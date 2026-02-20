@@ -181,17 +181,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, onBack, onPost
 
         <div className="relative">
           <div 
-            className="prose prose-invert max-w-none 
-              prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-foreground
-              prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-8 
-              prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-6 
-              prose-p:text-muted-foreground prose-p:leading-[1.8] prose-p:text-lg prose-p:mb-8
-              prose-li:text-muted-foreground prose-li:mb-4 prose-li:text-lg
-              prose-ol:my-8 prose-ul:my-8
-              prose-strong:text-foreground prose-strong:font-bold
-              prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:py-8 prose-blockquote:px-10 prose-blockquote:rounded-r-3xl prose-blockquote:not-italic prose-blockquote:text-foreground prose-blockquote:text-xl prose-blockquote:font-medium prose-blockquote:my-12
-              prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-a:font-bold
-              prose-img:rounded-3xl prose-img:border prose-img:border-border/40 prose-img:shadow-2xl"
+            className="blog-content max-w-none"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
