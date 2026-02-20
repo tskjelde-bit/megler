@@ -150,7 +150,65 @@ function App() {
   if (authLoading) return null;
 
   if (!isAuthenticated) {
-    return <LandingPage onLogin={login} />;
+    if (selectedPost) {
+      return (
+        <div className="min-h-screen bg-background text-foreground">
+          <nav className="fixed top-0 w-full z-50 border-b border-border/40 bg-background/60 backdrop-blur-xl h-16 flex items-center justify-between px-6">
+            <div className="flex items-center gap-2 cursor-pointer" onClick={() => { setSelectedPost(null); setActiveSection('overview'); }}>
+              <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center">
+                <span className="text-background font-bold">M</span>
+              </div>
+              <span className="font-bold text-xl tracking-tight">Meglerinnsikt</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <Button variant="ghost" size="sm" onClick={() => { setSelectedPost(null); setActiveSection('overview'); }}>Home</Button>
+              <Button variant="premium" size="sm" onClick={login} className="rounded-full px-6">Sign In</Button>
+            </div>
+          </nav>
+          <main className="max-w-7xl mx-auto px-6 pt-24">
+            <BlogPostPage 
+              post={selectedPost} 
+              onBack={() => setSelectedPost(null)} 
+              onPostClick={setSelectedPost} 
+            />
+          </main>
+        </div>
+      );
+    }
+
+    if (activeSection === 'blog') {
+      return (
+        <div className="min-h-screen bg-background text-foreground">
+          <nav className="fixed top-0 w-full z-50 border-b border-border/40 bg-background/60 backdrop-blur-xl h-16 flex items-center justify-between px-6">
+            <div className="flex items-center gap-2 cursor-pointer" onClick={() => setActiveSection('overview')}>
+              <div className="w-8 h-8 rounded-lg bg-foreground flex items-center justify-center">
+                <span className="text-background font-bold">M</span>
+              </div>
+              <span className="font-bold text-xl tracking-tight">Meglerinnsikt</span>
+            </div>
+            <div className="flex items-center gap-4">
+              <Button variant="ghost" size="sm" onClick={() => setActiveSection('overview')}>Home</Button>
+              <Button variant="premium" size="sm" onClick={login} className="rounded-full px-6">Sign In</Button>
+            </div>
+          </nav>
+          <main className="max-w-7xl mx-auto px-6 pt-24">
+            <div className="mb-12">
+              <h1 className="text-5xl font-black tracking-tight mb-4">Blogg</h1>
+              <p className="text-xl text-muted-foreground font-medium">Faglig og ærlig om boligmarkedet i Oslo.</p>
+            </div>
+            <BlogPage onPostClick={setSelectedPost} />
+          </main>
+        </div>
+      );
+    }
+
+    return (
+      <LandingPage 
+        onLogin={login} 
+        onPostClick={setSelectedPost} 
+        onSeeAllPosts={() => setActiveSection('blog')} 
+      />
+    );
   }
 
   const renderContent = () => {
@@ -176,7 +234,7 @@ function App() {
       );
     }
 
-    if (selectedPost && activeSection === 'blog') {
+    if (selectedPost) {
       return (
         <BlogPostPage 
           post={selectedPost} 

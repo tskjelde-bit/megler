@@ -35,9 +35,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface LandingPageProps {
   onLogin: () => void;
+  onPostClick: (post: any) => void;
+  onSeeAllPosts: () => void;
 }
 
-export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
+export const LandingPage: React.FC<LandingPageProps> = ({ onLogin, onPostClick, onSeeAllPosts }) => {
   const container = useRef<HTMLDivElement>(null);
 
   const featuredPost = mockPosts[0];
@@ -357,14 +359,14 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
                 Blogginnsikten jeg deler gjennom meglerinnsikt gir deg et tydeligere bilde av markedet – og et bedre grunnlag for å ta smarte beslutninger før du går i gang med salg eller kjøp.
               </p>
             </div>
-            <Button variant="ghost" className="group text-sm font-bold uppercase tracking-widest text-muted-foreground hover:text-foreground">
+            <Button variant="ghost" className="group text-sm font-bold uppercase tracking-widest text-muted-foreground hover:text-foreground" onClick={onSeeAllPosts}>
               Se alle artikler <ChevronRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             {/* Featured Post Card */}
-            <div className="group cursor-pointer space-y-6">
+            <div className="group cursor-pointer space-y-6" onClick={() => onPostClick(featuredPost)}>
               <div className="aspect-[16/9] rounded-3xl overflow-hidden border border-border/40 shadow-2xl relative">
                 <img 
                   src={featuredPost.featuredImage} 
@@ -395,7 +397,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
             </div>
 
             {/* Second Post Card */}
-            <div className="group cursor-pointer space-y-6">
+            <div className="group cursor-pointer space-y-6" onClick={() => onPostClick(recentPosts[0])}>
               <div className="aspect-[16/9] rounded-3xl overflow-hidden border border-border/40 shadow-2xl relative">
                 <img 
                   src={recentPosts[0].featuredImage} 
@@ -485,8 +487,8 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
             <div>
               <h4 className="font-bold text-lg mb-8">Company</h4>
               <ul className="space-y-5 text-muted-foreground font-medium">
-                <li><a href="#" className="hover:text-foreground transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-foreground transition-colors">Blog</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors" onClick={(e) => { e.preventDefault(); window.dispatchEvent(new CustomEvent('navigate-section', { detail: 'about' })); }}>About</a></li>
+                <li><a href="#" className="hover:text-foreground transition-colors" onClick={(e) => { e.preventDefault(); onSeeAllPosts(); }}>Blog</a></li>
                 <li><a href="#" className="hover:text-foreground transition-colors">Careers</a></li>
                 <li><a href="#" className="hover:text-foreground transition-colors">Contact</a></li>
               </ul>
