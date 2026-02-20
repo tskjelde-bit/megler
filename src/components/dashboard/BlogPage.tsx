@@ -31,18 +31,53 @@ export const mockPosts: BlogPost[] = [
       <h2>The Shift to Predictive Analytics</h2>
       <p>Traditional analytics tell you what happened. Modern AI-driven analytics tell you what will happen. In the world of B2B SaaS, this shift is revolutionary. We're moving from a retrospective view of data to a predictive one.</p>
       
+      <blockquote>
+        "The future belongs to those who can see it before it arrives. Predictive analytics is the telescope for the modern SaaS executive."
+      </blockquote>
+
       <h2>Real-time Decision Support</h2>
       <p>Imagine a dashboard that doesn't just show churn rates, but identifies customers likely to churn before they even think about it. AI algorithms can analyze behavior patterns that humans might miss, providing a proactive approach to customer success.</p>
       
+      <div class="blog-chart-container my-12 p-8 bg-secondary/20 rounded-3xl border border-border/40 shadow-2xl overflow-hidden relative group">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-50"></div>
+        <h4 class="text-sm font-bold uppercase tracking-widest mb-6 flex items-center gap-2 relative z-10">
+          <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          Predikert Vekst vs Faktisk (2024)
+        </h4>
+        <div id="chart-placeholder" class="h-64 flex items-center justify-center text-muted-foreground italic bg-background/50 rounded-xl border border-dashed border-border/20 relative z-10 group-hover:border-primary/30 transition-colors">
+          <div class="flex flex-col items-center gap-3">
+            <div class="flex gap-1 items-end h-12">
+              <div class="w-3 bg-primary/20 h-4 rounded-t-sm"></div>
+              <div class="w-3 bg-primary/40 h-8 rounded-t-sm"></div>
+              <div class="w-3 bg-primary/60 h-12 rounded-t-sm"></div>
+              <div class="w-3 bg-primary h-10 rounded-t-sm"></div>
+              <div class="w-3 bg-primary/80 h-14 rounded-t-sm"></div>
+            </div>
+            <span>[Interaktiv Vekst-Graf Laster...]</span>
+          </div>
+        </div>
+      </div>
+
+      <h2>Key Strategies for 2024</h2>
+      <p>To succeed with predictive analytics, organizations must focus on three core pillars of data maturity:</p>
+      
+      <ol>
+        <li><strong>Data Quality:</strong> Ensuring that the underlying data is clean, consistent, and representative.</li>
+        <li><strong>Algorithm Transparency:</strong> Building trust by explaining why a certain prediction was made.</li>
+        <li><strong>Actionable Insights:</strong> Moving from "what" to "what now" by providing clear next steps.</li>
+      </ol>
+
       <h3>Key Benefits</h3>
       <ul>
-        <li>Proactive Churn Prevention: Identify at-risk accounts early.</li>
-        <li>Automated Forecasting: Highly accurate revenue predictions.</li>
-        <li>Dynamic Pricing: Optimize subscription tiers in real-time.</li>
+        <li><strong>Proactive Churn Prevention:</strong> Identify at-risk accounts early. <a href="#">Les mer om churn-strategier</a>.</li>
+        <li><strong>Automated Forecasting:</strong> Highly accurate revenue predictions.</li>
+        <li><strong>Dynamic Pricing:</strong> Optimize subscription tiers in real-time.</li>
       </ul>
       
+      <p>Det er viktig å merke seg at teknologien alene ikke er nok. Man trenger også en kultur som er villig til å handle på innsiktene som blir presentert.</p>
+
       <h2>Conclusion</h2>
-      <p>As we look forward, the integration of AI isn't just an advantage—it's a necessity for scaling in the competitive SaaS landscape.</p>
+      <p>As we look forward, the integration of AI isn't just an advantage—it's a necessity for scaling in the competitive SaaS landscape. For more information, visit our <a href="/docs">dokumentasjon</a> or contact our support team.</p>
     `,
     category: 'AI',
     date: '2024-05-15',
@@ -59,15 +94,21 @@ export const mockPosts: BlogPost[] = [
       <h2>The Performance Challenge</h2>
       <p>When building high-density dashboards, the sheer volume of data can quickly degrade user experience if not handled correctly. React's rendering model needs careful optimization to remain snappy.</p>
       
+      <blockquote>
+        "Performance is not just about raw speed; it's about the reliability of the user experience under load."
+      </blockquote>
+
       <h2>Virtualization and Memoization</h2>
-      <p>Using libraries like react-window or react-virtualized is crucial for lists and grids. For charts, ensuring that only visible data points are processed can save significant CPU time.</p>
+      <p>Using libraries like <code>react-window</code> or <code>react-virtualized</code> is crucial for lists and grids. For charts, ensuring that only visible data points are processed can save significant CPU time.</p>
       
-      <h3>Optimization Techniques</h3>
-      <ul>
-        <li>Web Workers for data processing: Offload heavy calculations.</li>
-        <li>React.memo and useMemo: Avoid unnecessary re-renders.</li>
-        <li>Optimized SVG rendering for charts.</li>
-      </ul>
+      <h3>Top Optimization Techniques</h3>
+      <ol>
+        <li><strong>Web Workers:</strong> Offload heavy data processing to a separate thread.</li>
+        <li><strong>React.memo:</strong> Prevent unnecessary re-renders of heavy components.</li>
+        <li><strong>Windowing:</strong> Render only the rows currently visible in the viewport.</li>
+      </ol>
+
+      <p>By implementing these techniques, we've seen dashboard load times drop by over 60% in high-density environments. Check out our <a href="/docs/performance">performance guide</a> for more details.</p>
     `,
     category: 'Programming',
     date: '2024-05-10',

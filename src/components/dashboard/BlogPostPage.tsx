@@ -1,10 +1,69 @@
 import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Calendar, Clock, ChevronLeft, Share2, Facebook, Twitter, Linkedin, Link2, BookOpen, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { BlogPost, mockPosts } from './BlogPage';
 import { toast } from 'sonner';
+import { 
+  AreaChart, 
+  Area, 
+  XAxis, 
+  YAxis, 
+  CartesianGrid, 
+  Tooltip, 
+  ResponsiveContainer 
+} from 'recharts';
+
+const chartData = [
+  { month: 'Jan', value: 400 },
+  { month: 'Feb', value: 300 },
+  { month: 'Mar', value: 600 },
+  { month: 'Apr', value: 800 },
+  { month: 'May', value: 700 },
+  { month: 'Jun', value: 900 },
+  { month: 'Jul', value: 1200 },
+];
+
+const BlogChart = () => (
+  <div className="h-64 w-full mt-4">
+    <ResponsiveContainer width="100%" height="100%">
+      <AreaChart data={chartData}>
+        <defs>
+          <linearGradient id="blogGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.3}/>
+            <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0}/>
+          </linearGradient>
+        </defs>
+        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="hsl(var(--border))" opacity={0.1} />
+        <XAxis 
+          dataKey="month" 
+          axisLine={false} 
+          tickLine={false} 
+          tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 10 }}
+        />
+        <YAxis hide />
+        <Tooltip 
+          contentStyle={{ 
+            backgroundColor: 'hsl(var(--background))', 
+            border: '1px solid hsl(var(--border))',
+            borderRadius: '12px',
+            fontSize: '12px'
+          }}
+        />
+        <Area 
+          type="monotone" 
+          dataKey="value" 
+          stroke="hsl(var(--primary))" 
+          fillOpacity={1} 
+          fill="url(#blogGradient)" 
+          strokeWidth={3}
+        />
+      </AreaChart>
+    </ResponsiveContainer>
+  </div>
+);
 
 interface BlogPostPageProps {
   post: BlogPost;
@@ -14,6 +73,18 @@ interface BlogPostPageProps {
 
 export const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, onBack, onPostClick }) => {
   const [activeHeading, setActiveHeading] = useState<string>('');
+  const [chartElement, setChartElement] = useState<Element | null>(null);
+
+  useEffect(() => {
+    // Check if post content has chart placeholder and find it
+    const placeholder = document.getElementById('chart-placeholder');
+    if (placeholder) {
+      setChartElement(placeholder);
+      placeholder.innerHTML = ''; // Clear the placeholder text
+    } else {
+      setChartElement(null);
+    }
+  }, [post.content]);
   
   // Extract headings for Table of Contents
   const headings = [
@@ -108,10 +179,28 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, onBack, onPost
           />
         </div>
 
-        <div 
-          className="prose prose-invert max-w-none prose-headings:font-bold prose-h2:text-h2 prose-h2:mt-12 prose-h2:mb-6 prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:text-body-large prose-li:text-muted-foreground prose-strong:text-foreground prose-blockquote:border-l-primary prose-blockquote:bg-primary/5 prose-blockquote:p-6 prose-blockquote:rounded-r-2xl"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        <div className="relative">
+          <div 
+            className="prose prose-invert max-w-none 
+              prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-foreground
+              prose-h2:text-3xl prose-h2:mt-16 prose-h2:mb-8 
+              prose-h3:text-2xl prose-h3:mt-12 prose-h3:mb-6 
+              prose-p:text-muted-foreground prose-p:leading-[1.8] prose-p:text-lg prose-p:mb-8
+              prose-li:text-muted-foreground prose-li:mb-4 prose-li:text-lg
+              prose-ol:my-8 prose-ul:my-8
+              prose-strong:text-foreground prose-strong:font-bold
+              prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:bg-primary/5 prose-blockquote:py-8 prose-blockquote:px-10 prose-blockquote:rounded-r-3xl prose-blockquote:not-italic prose-blockquote:text-foreground prose-blockquote:text-xl prose-blockquote:font-medium prose-blockquote:my-12
+              prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-a:font-bold
+              prose-img:rounded-3xl prose-img:border prose-img:border-border/40 prose-img:shadow-2xl"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+
+          {/* Inject Chart if placeholder element found in DOM */}
+          {chartElement && createPortal(
+            <BlogChart />,
+            chartElement
+          )}
+        </div>
 
         {/* Related Posts */}
         <div className="pt-24 space-y-8 border-t border-border/20">
