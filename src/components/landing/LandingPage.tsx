@@ -144,12 +144,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin }) => {
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32">
         <div className="max-w-7xl mx-auto px-6 text-center">
           
-          <h1 className="hero-title display-text mb-10 leading-display perspective-[1000px] text-balance">
-            <span className="inline-block pb-2 text-primary font-serif italic">Boligmarkedet i Oslo</span><br />
-            <span className="inline-block pb-4 text-foreground font-sans font-bold tracking-tighter">Megling møter analyse.</span>
+          <h1 className="hero-title hero-heading-text mb-10 text-balance">
+            <span className="hero-heading-near-white">Boligmarkedet i Oslo</span><br />
+            <span className="hero-heading-gradient">Megling møter analyse.</span>
           </h1>
           
-          <p className="hero-description text-lg md:text-xl text-white opacity-90 max-w-2xl mx-auto mb-12 leading-relaxed font-medium">
+          <p className="hero-description hero-subheading-text mb-12 text-balance">
             Motta min månedlige oppdatering på boligmarkedet i Oslo. Faglig og ærlig om fortid, nåtid og fremtid.
           </p>
           
