@@ -3,12 +3,12 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { Button } from '@/components/ui/button';
-import { 
-  BarChart3, 
-  Globe, 
-  Shield, 
-  Zap, 
-  ChevronRight, 
+import {
+  BarChart3,
+  Globe,
+  Shield,
+  Zap,
+  ChevronRight,
   ArrowRight,
   MousePointer2,
   PieChart,
@@ -21,7 +21,7 @@ import {
   LayoutDashboard,
   Sparkles,
   Layers,
-  Play, 
+  Play,
   CheckCircle2,
   Calendar,
   Clock
@@ -48,20 +48,20 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin, onPostClick, 
   useGSAP(() => {
     // Hero Animations
     const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
-    
+
     tl.from('.hero-badge', { opacity: 0, y: 30, duration: 1 })
-      .from('.hero-title span', { 
-        opacity: 0, 
-        y: 50, 
-        stagger: 0.1, 
+      .from('.hero-title span', {
+        opacity: 0,
+        y: 50,
+        stagger: 0.1,
         duration: 1.2,
         rotation: 2
       }, '-=0.6')
       .from('.hero-description', { opacity: 0, y: 20, duration: 1 }, '-=0.8')
       .from('.hero-ctas', { opacity: 0, scale: 0.95, duration: 1 }, '-=0.8')
-      .from('.hero-visual', { 
-        opacity: 0, 
-        y: 60, 
+      .from('.hero-visual', {
+        opacity: 0,
+        y: 60,
         rotationX: 10,
         duration: 1.5,
         clearProps: 'all'
@@ -127,7 +127,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin, onPostClick, 
             </div>
             <span className="font-bold text-xl tracking-tight">Meglerinnsikt</span>
           </div>
-          
+
           <nav className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-foreground hover:after:w-full after:transition-all" onClick={(e) => { e.preventDefault(); document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }); }}>Platform</a>
             <a href="#pricing" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-foreground hover:after:w-full after:transition-all" onClick={(e) => { e.preventDefault(); document.querySelector('.stats-section')?.scrollIntoView({ behavior: 'smooth' }); }}>Pricing</a>
@@ -145,16 +145,16 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin, onPostClick, 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          
+
           <h1 className="hero-title hero-heading-text mb-10 text-balance">
             <span className="hero-heading-near-white">Boligmarkedet i Oslo</span><br />
             <span className="hero-heading-gradient">Megling møter analyse.</span>
           </h1>
-          
+
           <p className="hero-description hero-subheading-text mb-12 text-balance">
             Motta min månedlige oppdatering på boligmarkedet i Oslo. Faglig og ærlig om fortid, nåtid og fremtid.
           </p>
-          
+
           <div className="hero-ctas flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <Button variant="premium" size="lg" className="h-14 px-10 rounded-full text-base min-w-[200px]" onClick={() => document.getElementById('newsletter')?.scrollIntoView({ behavior: 'smooth' })}>
               Nyhetsbrev
@@ -169,7 +169,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin, onPostClick, 
             <div className="absolute inset-0 bg-primary/10 blur-[120px] -z-10 rounded-full scale-90" />
             <div className="hero-visual-inner relative rounded-3xl border border-border/60 bg-card/40 backdrop-blur-md p-2 md:p-4 shadow-[0_0_100px_-20px_rgba(0,0,0,0.5)] overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-foreground/20 to-transparent" />
-              
+
               {/* High-Fidelity UI Preview */}
               <div className="w-full h-full rounded-2xl bg-background/80 border border-border/40 overflow-hidden flex flex-col md:flex-row aspect-[16/10]">
                 {/* Sidebar Mock */}
@@ -280,15 +280,15 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin, onPostClick, 
               </div>
               <div className="mt-12 relative h-40 w-full flex items-end gap-2 px-4">
                 {[40, 70, 45, 90, 65, 80, 50, 85, 60, 95].map((h, i) => (
-                  <div 
-                    key={i} 
-                    className="flex-1 bg-gradient-to-t from-primary/40 to-primary/5 rounded-t-lg transition-all duration-700 group-hover:bg-primary/60" 
-                    style={{ height: `${h}%` }} 
+                  <div
+                    key={i}
+                    className="flex-1 bg-gradient-to-t from-primary/40 to-primary/5 rounded-t-lg transition-all duration-700 group-hover:bg-primary/60"
+                    style={{ height: `${h}%` }}
                   />
                 ))}
               </div>
             </div>
-            
+
             {/* Security Card */}
             <div className="bento-item md:col-span-4 md:row-span-1 rounded-[2.5rem] border border-border/50 bg-card/30 p-10 flex flex-col items-center justify-center text-center group hover:border-emerald-500/30 transition-colors">
               <div className="w-20 h-20 rounded-3xl bg-emerald-500/10 flex items-center justify-center mb-8 rotate-3 group-hover:rotate-0 transition-transform">
@@ -368,9 +368,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin, onPostClick, 
             {/* Featured Post Card */}
             <div className="group cursor-pointer space-y-6" onClick={() => onPostClick(featuredPost)}>
               <div className="aspect-[16/9] rounded-3xl overflow-hidden border border-border/40 shadow-2xl relative">
-                <img 
-                  src={featuredPost.featuredImage} 
-                  alt={featuredPost.title} 
+                <img
+                  src={featuredPost.featuredImage}
+                  alt={featuredPost.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute top-6 left-6">
@@ -399,9 +399,9 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin, onPostClick, 
             {/* Second Post Card */}
             <div className="group cursor-pointer space-y-6" onClick={() => onPostClick(recentPosts[0])}>
               <div className="aspect-[16/9] rounded-3xl overflow-hidden border border-border/40 shadow-2xl relative">
-                <img 
-                  src={recentPosts[0].featuredImage} 
-                  alt={recentPosts[0].title} 
+                <img
+                  src={recentPosts[0].featuredImage}
+                  alt={recentPosts[0].title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute top-6 left-6">
@@ -436,12 +436,12 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin, onPostClick, 
           <div className="reveal-section p-12 md:p-32 rounded-[4rem] bg-gradient-to-br from-card to-background border border-border/60 relative overflow-hidden shadow-2xl">
             <div className="absolute inset-0 bg-primary/5 blur-[120px] -z-10 rounded-full" />
             <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[100px] rounded-full translate-x-1/2 -translate-y-1/2" />
-            
+
             <h2 className="text-h1 md:text-display font-bold mb-10 relative z-10 text-balance">Megler<br /><span className="text-muted-foreground">innsikt</span></h2>
             <p className="text-body-large md:text-h3 text-muted-foreground mb-14 max-w-xl mx-auto relative z-10 font-medium text-balance">
               Få de beste analysene av boligmarkedet rett i innboksen.
             </p>
-            
+
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 relative z-10">
               <Button variant="premium" size="lg" onClick={onLogin} className="h-16 px-12 rounded-full text-xl">
                 Get Started Free
@@ -503,7 +503,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onLogin, onPostClick, 
             </div>
           </div>
           <div className="flex flex-col md:flex-row items-center justify-between gap-8 pt-16 border-t border-border/40 text-muted-foreground font-bold uppercase tracking-widest text-[10px]">
-            <p>© 2024 Meglerinnsikt Inc.</p>
+            <p>&copy; 2024 Meglerinnsikt Inc.</p>
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" />

@@ -11,7 +11,7 @@ interface NewsletterSignupProps {
   variant?: 'minimal' | 'full'
 }
 
-export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({ 
+export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
   formId = '6638067', // Placeholder formId
   className,
   variant = 'full'
@@ -22,7 +22,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    
+
     // Simulate API call to ConvertKit
     // In a real app, this would be:
     // const response = await fetch(`https://app.convertkit.com/forms/${formId}/subscriptions`, {
@@ -30,7 +30,7 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
     //   headers: { 'Content-Type': 'application/json' },
     //   body: JSON.stringify({ email_address: email })
     // });
-    
+
     setTimeout(() => {
       setIsLoading(false);
       setEmail('');
@@ -48,9 +48,9 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
           <div className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 rounded bg-black flex items-center justify-center">
             <span className="text-white text-[10px] font-bold">M</span>
           </div>
-          <input 
-            type="email" 
-            placeholder="din@e-post.no" 
+          <input
+            type="email"
+            placeholder="din@e-post.no"
             className="w-full h-12 bg-gray-100 border border-transparent focus:bg-white focus:border-black transition-all rounded-xl px-12 text-black text-sm"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -58,9 +58,9 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
             disabled={isLoading}
           />
         </div>
-        <Button 
-          type="submit" 
-          size="lg" 
+        <Button
+          type="submit"
+          size="lg"
           className="h-12 px-8 rounded-xl bg-black text-white hover:bg-gray-800 transition-all w-full sm:w-auto shrink-0 font-semibold"
           disabled={isLoading}
         >
@@ -87,9 +87,9 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
             <div className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 rounded bg-black flex items-center justify-center">
               <span className="text-white text-[10px] font-bold">M</span>
             </div>
-            <input 
-              type="email" 
-              placeholder="din@e-post.no" 
+            <input
+              type="email"
+              placeholder="din@e-post.no"
               className="w-full h-12 bg-gray-100 border border-transparent focus:bg-white focus:border-black transition-all rounded-xl px-12 text-black text-sm"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -97,9 +97,9 @@ export const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
               disabled={isLoading}
             />
           </div>
-          <Button 
-            type="submit" 
-            size="lg" 
+          <Button
+            type="submit"
+            size="lg"
             className="h-12 px-8 rounded-xl bg-black text-white hover:bg-gray-800 transition-all w-full sm:w-auto shrink-0 font-semibold"
             disabled={isLoading}
           >
