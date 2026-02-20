@@ -117,10 +117,18 @@ export const BlogPage: React.FC<{ onPostClick: (post: BlogPost) => void }> = ({ 
   const [activeCategory, setActiveCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const categories = ['All', 'Programming', 'AI', 'Career', 'Reviews'];
+  const categories = ['Alle', 'Programmering', 'AI', 'Karriere', 'Anmeldelser'];
 
   const filteredPosts = mockPosts.filter(post => {
-    const matchesCategory = activeCategory === 'All' || post.category === activeCategory;
+    const categoryMap: Record<string, string> = {
+      'Alle': 'All',
+      'Programmering': 'Programming',
+      'AI': 'AI',
+      'Karriere': 'Career',
+      'Anmeldelser': 'Reviews'
+    };
+    const targetCategory = categoryMap[activeCategory] || activeCategory;
+    const matchesCategory = activeCategory === 'Alle' || post.category === targetCategory;
     const matchesSearch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
                           post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
@@ -130,42 +138,6 @@ export const BlogPage: React.FC<{ onPostClick: (post: BlogPost) => void }> = ({ 
 
   return (
     <div className="space-y-12 pb-12 animate-fade-in">
-      {/* Featured Post */}
-      {activeCategory === 'All' && !searchQuery && (
-        <section 
-          className="relative rounded-3xl overflow-hidden cursor-pointer group"
-          onClick={() => onPostClick(featuredPost)}
-        >
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10" />
-          <img 
-            src={featuredPost.featuredImage} 
-            alt={featuredPost.title}
-            className="w-full h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-          <div className="absolute bottom-0 left-0 p-8 md:p-12 z-20 max-w-2xl space-y-4">
-            <Badge variant="secondary" className="bg-primary text-primary-foreground font-bold uppercase tracking-widest text-[10px] px-3 py-1">
-              Featured
-            </Badge>
-            <h2 className="text-h1 font-bold tracking-tight text-white leading-tight">
-              {featuredPost.title}
-            </h2>
-            <p className="text-body-large text-white/80 font-medium">
-              {featuredPost.excerpt}
-            </p>
-            <div className="flex items-center gap-4 pt-2">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4 text-white/60" />
-                <span className="text-sm text-white/60">{featuredPost.date}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-white/60" />
-                <span className="text-sm text-white/60">{featuredPost.readingTime}</span>
-              </div>
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* Filters & Search */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 bg-card/30 backdrop-blur-sm border border-border/40 p-6 rounded-2xl">
         <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-hide">
@@ -185,7 +157,7 @@ export const BlogPage: React.FC<{ onPostClick: (post: BlogPost) => void }> = ({ 
         <div className="relative max-w-sm w-full">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground/60" />
           <Input 
-            placeholder="Search posts..." 
+            placeholder="Søk i artikler..." 
             className="pl-10 bg-background/50 border-border/40 focus:border-primary/50 transition-all rounded-full"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
@@ -194,43 +166,56 @@ export const BlogPage: React.FC<{ onPostClick: (post: BlogPost) => void }> = ({ 
       </div>
 
       {/* Post Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {filteredPosts.map((post) => (
-          <Card 
+          <div 
             key={post.id} 
-            className="group cursor-pointer bg-card/40 border-border/40 backdrop-blur-sm hover:border-primary/30 hover:bg-card/60 transition-all duration-300 rounded-2xl flex flex-col h-full shadow-sm hover:shadow-xl hover:shadow-primary/5"
+            className="group cursor-pointer flex flex-col space-y-6"
             onClick={() => onPostClick(post)}
           >
-            <div className="aspect-video overflow-hidden rounded-t-2xl relative">
+            <div className="aspect-[16/10] overflow-hidden rounded-[2.5rem] relative bg-card/40 border border-border/20 shadow-2xl">
               <img 
                 src={post.featuredImage} 
                 alt={post.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute top-4 left-4">
-                <Badge variant="secondary" className="bg-background/80 backdrop-blur-md text-[10px] font-bold uppercase tracking-widest px-2 py-1 border border-white/10">
-                  {post.category}
+              <div className="absolute top-6 left-6">
+                <Badge variant="secondary" className="bg-black/80 backdrop-blur-md text-[11px] font-bold uppercase tracking-widest px-3 py-1.5 border border-white/10 rounded-lg">
+                  {post.category === 'Programming' ? 'Programmering' : 
+                   post.category === 'Career' ? 'Karriere' : 
+                   post.category === 'Reviews' ? 'Anmeldelser' : post.category}
                 </Badge>
               </div>
             </div>
-            <CardHeader className="p-6 pb-2">
-              <CardTitle className="text-h3 font-bold leading-tight group-hover:text-primary transition-colors line-clamp-2">
+            
+            <div className="space-y-4 px-2">
+              <div className="flex items-center gap-6 text-muted-foreground/60">
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  <span className="text-xs font-medium uppercase tracking-wider">{post.date}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock className="w-4 h-4" />
+                  <span className="text-xs font-medium uppercase tracking-wider">{post.readingTime.toUpperCase()}</span>
+                </div>
+              </div>
+
+              <h2 className="text-h2 md:text-[2.5rem] font-bold tracking-tight leading-[1.1] transition-colors group-hover:text-primary/90">
                 {post.title}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="px-6 py-2 flex-grow">
-              <p className="text-muted-foreground text-body-small line-clamp-3 leading-relaxed">
+              </h2>
+
+              <p className="text-muted-foreground/80 text-lg leading-relaxed line-clamp-2 max-w-xl">
                 {post.excerpt}
               </p>
-            </CardContent>
-            <CardFooter className="px-6 py-4 pt-2 border-t border-border/20 mt-4 flex items-center justify-between">
-              <div className="flex items-center gap-4">
-                <span className="text-[11px] text-muted-foreground font-semibold uppercase tracking-wider">{post.date}</span>
-                <span className="text-[11px] text-muted-foreground font-semibold uppercase tracking-wider">{post.readingTime}</span>
+
+              <div className="flex items-center gap-2 pt-2 group/link">
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-foreground/80 group-hover/link:text-primary transition-colors">
+                  LES ARTIKKEL
+                </span>
+                <ArrowRight className="w-4 h-4 text-primary group-hover/link:translate-x-1 transition-transform" />
               </div>
-              <ArrowRight className="w-4 h-4 text-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-            </CardFooter>
-          </Card>
+            </div>
+          </div>
         ))}
       </div>
       
@@ -239,10 +224,10 @@ export const BlogPage: React.FC<{ onPostClick: (post: BlogPost) => void }> = ({ 
           <div className="bg-primary/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
             <Search className="w-8 h-8 text-primary" />
           </div>
-          <h3 className="text-xl font-bold">No posts found</h3>
-          <p className="text-muted-foreground">Try adjusting your search or filters.</p>
-          <Button variant="outline" onClick={() => { setActiveCategory('All'); setSearchQuery(''); }}>
-            Clear all filters
+          <h3 className="text-xl font-bold">Ingen artikler funnet</h3>
+          <p className="text-muted-foreground">Prøv å justere søket eller filtrene.</p>
+          <Button variant="outline" onClick={() => { setActiveCategory('Alle'); setSearchQuery(''); }}>
+            Tøm alle filtre
           </Button>
         </div>
       )}

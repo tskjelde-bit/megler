@@ -50,12 +50,14 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, onBack, onPost
           className="group text-muted-foreground hover:text-foreground hover:bg-secondary/30"
         >
           <ChevronLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
-          Back to Blog
+          Tilbake til blogg
         </Button>
 
         <div className="space-y-6">
           <Badge variant="secondary" className="bg-primary shadow-lg shadow-primary/20 text-xs font-bold uppercase tracking-widest px-3 py-1">
-            {post.category}
+            {post.category === 'Programming' ? 'Programmering' : 
+             post.category === 'Career' ? 'Karriere' : 
+             post.category === 'Reviews' ? 'Anmeldelser' : post.category}
           </Badge>
           <h1 className="text-h2 md:text-h1 font-extrabold tracking-tight leading-tight">
             {post.title}
@@ -69,7 +71,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, onBack, onPost
               </Avatar>
               <div className="flex flex-col">
                 <span className="text-sm font-bold">{post.author.name}</span>
-                <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">Author</span>
+                <span className="text-[10px] uppercase tracking-widest text-muted-foreground font-semibold">Forfatter</span>
               </div>
             </div>
             
@@ -88,10 +90,10 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, onBack, onPost
               <Button variant="outline" size="icon" className="h-8 w-8 rounded-full border-border/40" onClick={copyToClipboard}>
                 <Link2 className="h-3.5 w-3.5" />
               </Button>
-              <Button variant="outline" size="icon" className="h-8 w-8 rounded-full border-border/40" onClick={() => toast.info('Shared to Twitter')}>
+              <Button variant="outline" size="icon" className="h-8 w-8 rounded-full border-border/40" onClick={() => toast.info('Delt på Twitter')}>
                 <Twitter className="h-3.5 w-3.5" />
               </Button>
-              <Button variant="outline" size="icon" className="h-8 w-8 rounded-full border-border/40" onClick={() => toast.info('Shared to LinkedIn')}>
+              <Button variant="outline" size="icon" className="h-8 w-8 rounded-full border-border/40" onClick={() => toast.info('Delt på LinkedIn')}>
                 <Linkedin className="h-3.5 w-3.5" />
               </Button>
             </div>
@@ -115,7 +117,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, onBack, onPost
         <div className="pt-24 space-y-8 border-t border-border/20">
           <div className="flex items-center gap-3">
             <BookOpen className="w-6 h-6 text-primary" />
-            <h2 className="text-h2 font-bold">Related Posts</h2>
+            <h2 className="text-h2 font-bold">Relaterte artikler</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {relatedPosts.map((related) => (
@@ -143,7 +145,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, onBack, onPost
             <div className="bg-card/30 backdrop-blur-md border border-border/40 rounded-2xl p-6 shadow-sm">
               <h3 className="text-sm font-bold uppercase tracking-widest mb-6 flex items-center gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                Table of Contents
+                Innholdsfortegnelse
               </h3>
               <nav className="space-y-4">
                 {headings.map((heading) => (
@@ -163,7 +165,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, onBack, onPost
           <div className="bg-card/30 backdrop-blur-md border border-border/40 rounded-2xl p-6 shadow-sm space-y-4">
              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground/60 mb-2">
                <User className="w-3 h-3" />
-               About the Author
+               Om forfatteren
              </div>
              <div className="flex items-center gap-4">
                 <Avatar className="h-12 w-12 border border-border/40">
@@ -172,36 +174,36 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ post, onBack, onPost
                 </Avatar>
                 <div>
                   <h4 className="font-bold text-sm">{post.author.name}</h4>
-                  <p className="text-[10px] text-muted-foreground uppercase tracking-wider">SaaS Product Expert</p>
+                  <p className="text-[10px] text-muted-foreground uppercase tracking-wider">SaaS Produktekspert</p>
                 </div>
              </div>
              <p className="text-xs text-muted-foreground leading-relaxed">
-               Expert in SaaS growth strategies and modern analytics architectures. Passionate about building products that users love.
+               Ekspert på SaaS-vekststrategier og moderne analysearkitekturer. Lidenskapelig opptatt av å bygge produkter som brukerne elsker.
              </p>
              <Button variant="outline" size="sm" className="w-full text-xs font-bold uppercase tracking-widest border-border/40">
-               Follow on Twitter
+               Følg på Twitter
              </Button>
           </div>
 
           {/* Newsletter (Compact) */}
           <div className="bg-primary/5 border border-primary/20 rounded-2xl p-6 space-y-4 shadow-[0_10px_40px_-15px_hsl(var(--primary)/0.1)]">
-            <h3 className="font-bold text-lg leading-tight">Get the latest SaaS insights</h3>
+            <h3 className="font-bold text-lg leading-tight">Få de siste SaaS-innsiktene</h3>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Join 5,000+ readers getting our weekly newsletter on SaaS growth, AI, and design.
+              Bli med over 5 000 lesere som får vårt ukentlige nyhetsbrev om SaaS-vekst, AI og design.
             </p>
-            <form className="space-y-2" onSubmit={(e) => { e.preventDefault(); toast.success('Subscribed successfully!'); }}>
+            <form className="space-y-2" onSubmit={(e) => { e.preventDefault(); toast.success('Abonnert!'); }}>
               <input 
                 type="email" 
-                placeholder="you@company.com" 
+                placeholder="deg@firma.no" 
                 className="w-full h-9 rounded-lg px-3 text-xs bg-background/50 border border-border/40 focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all"
                 required
               />
               <Button type="submit" size="sm" className="w-full text-xs font-bold uppercase tracking-widest shadow-lg shadow-primary/20">
-                Subscribe Now
+                Abonner nå
               </Button>
             </form>
             <p className="text-[10px] text-muted-foreground text-center">
-              No spam, ever. Unsubscribe anytime.
+              Ingen spam, noen gang. Avslutt når som helst.
             </p>
           </div>
         </div>
