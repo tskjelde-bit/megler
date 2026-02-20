@@ -97,23 +97,23 @@ module.exports = {
   		},
   		fontFamily: {
   			sans: [
-  				'Geist Sans',
-  				'Manrope',
   				'DM Sans',
+  				'Geist',
+  				'Inter',
   				'sans-serif'
   			],
   			display: [
-  				'Space Grotesk',
-  				'Geist Sans',
+  				'DM Sans',
+  				'Geist',
   				'sans-serif'
   			],
   			mono: [
+  				'IBM Plex Mono',
   				'Geist Mono',
-  				'Space Mono',
   				'monospace'
   			],
   			serif: [
-  				'Playfair Display',
+  				'Lora',
   				'serif'
   			]
   		},
